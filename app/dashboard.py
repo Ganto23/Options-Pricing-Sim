@@ -189,15 +189,15 @@ st.markdown(
         font-size: 1.1em;
     }}
     
-        /* Dark mode support */
+    /* Dark mode support - make it look like light mode with cream background */
     @media (prefers-color-scheme: dark) {{
         .stApp {{
-            background-color: {DARK_BG};
+            background-color: {CREAM} !important;
         }}
         
         .css-1d391kg, .css-12oz5g7 {{
-            background-color: {DARK_SURFACE};
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            background-color: white !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }}
         
         /* Force text to remain black even in dark mode */
@@ -241,8 +241,17 @@ st.markdown(
             color: #000000 !important;
         }}
         
+        /* Override other dark mode colors */
+        .streamlit-expanderHeader {{
+            background-color: {CREAM} !important;
+        }}
+        
         tbody tr:nth-child(even) {{
-            background-color: #2a2a2a;
+            background-color: {CREAM} !important;
+        }}
+        
+        .stTabs [data-baseweb="tab"] {{
+            background-color: {CREAM} !important;
         }}
     }}
     
