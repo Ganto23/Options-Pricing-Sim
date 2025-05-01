@@ -28,6 +28,11 @@ TANGERINE = "#feb06a"
 TURQUOISE = "#36d6e7"
 BLUE_GRAY = "#5d6c89"
 
+# Define dark mode colors
+DARK_BG = "#1e1e1e"
+DARK_TEXT = "#f0f0f0"
+DARK_SURFACE = "#2c2c2c"
+
 # Set page configuration
 st.set_page_config(
     page_title="Options Pricing Simulator",
@@ -167,6 +172,63 @@ st.markdown(
         color: {BLUE_GRAY} !important;
         font-weight: 600 !important;
         border-radius: 5px;
+    }}
+    
+    /* Ensure math formulas are visible in both light and dark modes */
+    .katex {{ 
+        font-size: 1.1em;
+    }}
+    
+        /* Dark mode support */
+    @media (prefers-color-scheme: dark) {{
+        .stApp {{
+            background-color: {DARK_BG};
+            color: {DARK_TEXT};
+        }}
+        
+        .css-1d391kg, .css-12oz5g7 {{
+            background-color: {DARK_SURFACE};
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }}
+        
+        h1, h2, h3, h4, h5, h6 {{
+            color: {DARK_TEXT} !important;
+        }}
+        
+        [data-testid="stMetricValue"] {{
+            color: {DARK_TEXT} !important;
+        }}
+        
+        [data-testid="stMetricLabel"] {{
+            color: {DARK_TEXT} !important;
+        }}
+        
+        label, .label {{
+            color: {DARK_TEXT} !important;
+        }}
+        
+        .stRadio div[role="radiogroup"] div label,
+        .stCheckbox label {{
+            color: {DARK_TEXT} !important;
+        }}
+        
+        .streamlit-expanderHeader {{
+            background-color: {DARK_SURFACE};
+            color: {DARK_TEXT} !important;
+        }}
+        
+        tbody tr:nth-child(even) {{
+            background-color: #2a2a2a;
+        }}
+        
+        [data-testid="stThumbValue"] {{
+            color: {DARK_TEXT} !important;
+        }}
+        
+        /* Math formulas in dark mode */
+        .katex {{
+            color: {DARK_TEXT} !important;
+        }}
     }}
     
     </style>
