@@ -50,6 +50,11 @@ st.markdown(
         background-color: {CREAM};
     }}
     
+    /* Text color - force black for all non-heading text */
+    p, li, span, div:not(.streamlit-expanderHeader), [data-testid="stMarkdownContainer"] {{
+        color: #000000 !important;
+    }}
+    
     /* Container styling */
     .css-1d391kg, .css-12oz5g7 {{
         background-color: white;
@@ -64,8 +69,9 @@ st.markdown(
         padding-top: 2rem;
     }}
     
+    /* Ensure sidebar text is visible over the dark background */
     [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p {{
-        color: white;
+        color: white !important;
     }}
     
     /* Headers */
@@ -109,13 +115,13 @@ st.markdown(
     [data-testid="stMetricValue"] {{
         font-size: 2rem !important;
         font-weight: 600 !important;
-        color: {BLUE_GRAY} !important;
+        color: #000000 !important;
     }}
     
     [data-testid="stMetricLabel"] {{
         font-size: 1rem !important;
         font-weight: 400 !important;
-        color: {BLUE_GRAY} !important;
+        color: #000000 !important;
     }}
     
     /* Tables */
@@ -130,6 +136,10 @@ st.markdown(
     
     tbody tr:nth-child(even) {{
         background-color: {CREAM};
+    }}
+    
+    tbody tr td {{
+        color: #000000 !important;
     }}
     
     /* Sliders */
@@ -148,14 +158,14 @@ st.markdown(
     
     /* Labels */
     label, .label {{
-        color: {BLUE_GRAY} !important;
+        color: #000000 !important;
         font-weight: 500 !important;
     }}
     
     /* Radio buttons and checkboxes */
     .stRadio div[role="radiogroup"] div label,
     .stCheckbox label {{
-        color: {BLUE_GRAY} !important;
+        color: #000000 !important;
     }}
     
     /* Make forms look nicer */
@@ -183,7 +193,6 @@ st.markdown(
     @media (prefers-color-scheme: dark) {{
         .stApp {{
             background-color: {DARK_BG};
-            color: {DARK_TEXT};
         }}
         
         .css-1d391kg, .css-12oz5g7 {{
@@ -191,43 +200,49 @@ st.markdown(
             box-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }}
         
-        h1, h2, h3, h4, h5, h6 {{
-            color: {DARK_TEXT} !important;
+        /* Force text to remain black even in dark mode */
+        p, li, span, div:not(.streamlit-expanderHeader), [data-testid="stMarkdownContainer"] {{
+            color: #000000 !important;
         }}
         
-        [data-testid="stMetricValue"] {{
-            color: {DARK_TEXT} !important;
-        }}
-        
-        [data-testid="stMetricLabel"] {{
-            color: {DARK_TEXT} !important;
+        [data-testid="stMetricValue"], [data-testid="stMetricLabel"] {{
+            color: #000000 !important;
         }}
         
         label, .label {{
-            color: {DARK_TEXT} !important;
+            color: #000000 !important;
         }}
         
         .stRadio div[role="radiogroup"] div label,
         .stCheckbox label {{
-            color: {DARK_TEXT} !important;
+            color: #000000 !important;
         }}
         
-        .streamlit-expanderHeader {{
-            background-color: {DARK_SURFACE};
-            color: {DARK_TEXT} !important;
+        /* Ensure math formulas are visible */
+        .katex {{
+            color: #000000 !important;
+        }}
+        
+        /* Keep sidebar text white for visibility */
+        [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p {{
+            color: white !important;
+        }}
+        
+        /* Keep headers styling */
+        h1, h2, h3, h4, h5, h6 {{
+            color: {BLUE_GRAY} !important;
+        }}
+        
+        tbody tr td {{
+            color: #000000 !important;
+        }}
+        
+        [data-testid="stThumbValue"] {{
+            color: #000000 !important;
         }}
         
         tbody tr:nth-child(even) {{
             background-color: #2a2a2a;
-        }}
-        
-        [data-testid="stThumbValue"] {{
-            color: {DARK_TEXT} !important;
-        }}
-        
-        /* Math formulas in dark mode */
-        .katex {{
-            color: {DARK_TEXT} !important;
         }}
     }}
     
