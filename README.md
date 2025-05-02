@@ -2,6 +2,8 @@
 
 A comprehensive, educational, and visually interactive options pricing simulator built in Python.
 
+You can find this app at https://options-pricing-sim.streamlit.app.
+
 ## Overview
 
 This project provides tools for pricing financial options using different models, visualizing option prices and Greeks, and analyzing option strategies. It's designed to be both educational and practical for anyone learning about quantitative finance.
